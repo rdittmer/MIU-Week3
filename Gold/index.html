@@ -11,8 +11,6 @@
 <title>Index</title>
 <link href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="css/styles.css" type="text/css" />
-<script src="http://code.jquery.com/jquery-1.5.min.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -21,7 +19,7 @@
     <h1>Tee Time Tracker - Gold</h1>
   </div>
   <div data-role="content"></div>
-  <a href="additem.html" data-ajax="false"><img src="img/golf1.png" align="absmiddle" hspace="15%"/></a>
+  <a href="additem"><img src="img/golf1.png" align="absmiddle" hspace="15%"/></a>
   <a href="newsStream" data-role="button" data-inset="true">Upcoming Tee Times</a>
   <div data-role="fieldcontain">
     <input type="search" name="searchInput" id="searchInput" value=""/>
@@ -241,17 +239,17 @@
 </ul>
 
 <ul data-role="page" id="additem">
-	<div data-role="header">
+	<div data-role="header" data-backbtn="true">
 		<h1>Add Tee Time</h1>
     </div>
     
     <div data-role="content">
-    	<div data-role="fieldcontain">
-        	<form action="#" method="post" id="teeForm">
+        	<form action="" method="post" id="teeForm">
                 	  
                       <div data-role="fieldcontain">
                 	    <label for="options" class="select">Options:</label>
-                	    <select name="options" id="options">
+                	    <select name="options" id="options" class="required">
+                          <option data-placeholder="true">Select a Course</option>
                 	      <option value="course1">Course 1</option>
                 	      <option value="course2">Course 2</option>
                 	      <option value="course3">Course 3</option>
@@ -259,15 +257,52 @@
                           <option value="course5">Course 5</option>
               	        </select>
               	      </div>
+                      
+                      <div data-role="fieldcontain">
+                      	<label for="reservist">Reservist:</label>
+                      	<input type="text" name="reservist" id="reservist" class="required"/>
+                      </div>
+                      
+                      <div data-role="fieldcontain">
+                      	<label for="numberGames">Number of Games:</label>
+                        <input type="range" name="numberGames" id="numberGames" value="1" min="1" max="10" />
+                      </div>
+                      
+                      <div data-role="fieldcontain">
+                      	<fieldset data-role="controlgroup">
+                        	<legend>Location:</legend>
+                            <input type="radio" value="Front 9" name="location" id="front9" />
+                            <label for="front9">Front 9</label>
+                            <input type="radio" value="Back 9" name="location" id="back9" />
+                            <label for="back9">Back 9</label>
+                            <input type="radio" value="All 18" name="location" id="all18" checked="checked" />
+                            <label for="all18">All 18</label>
+                        </fieldset>
+                      </div>
+                      
+                      <div data-role="fieldcontain">
+                      	<label for="date">Date:</label>
+                      	<input type="date" name="date" id="date" class="required"/>
+                      </div>
                     
+                    <div data-role="fieldcontain">
+                    	<label for="notes">Notes:</label>
+                        <textarea id="notes" name="notes"></textarea>
+                    </div>
                     
+                    <div data-role="fieldcontain">
+                    	<input type="submit" value="Add Tee Time" />
+                    </div>
             
             </form>
-        </div>
     </div>
 </ul>
 
 </body>
 
+<script src="http://code.jquery.com/jquery-1.5.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js" type="text/javascript"></script>
+<script src="jquery.validate.min.js" type="text/javascript"></script>
+<script src="main.js" type="text/javascript"></script>
 
 </html>
