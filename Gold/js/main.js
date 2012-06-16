@@ -1,5 +1,5 @@
 $(document).bind('pageinit', function(){
-   var form = $('teeForm');
+   var form = $('#teeForm');
    form.validate({
       invalidHandler: function(form, validator){},
       submitHandler: function(){
